@@ -1,0 +1,5 @@
+# kubectl create ns prodns
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prodns

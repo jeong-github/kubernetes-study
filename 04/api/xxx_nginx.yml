@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: pod
+metadata:
+  name: web
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          protocol: TCP

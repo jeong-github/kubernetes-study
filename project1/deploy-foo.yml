@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-foo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: foo
+  template:
+    metadata:
+      name: pod-foo
+      labels:
+        app: foo
+
+    spec:
+      containers:
+        - name: container-foo
+          image: whatwant/node-web:1.0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-foo
+spec:
+  selector:
+    app: foo
+  ports:
+    - port: 4000
+      targetPort: 8080
+ 
+
+

@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-foo-bar
+spec:
+  ingressClassName: nginx
+  rules:
+  - http: 
+      paths: 
+      - pathType: Prefix
+        path: "/foo"
+        backend:
+          service:
+            name: service-foo
+            port: 
+              number: 4000
+
+
+  - http: 
+      paths: 
+      - pathType: Prefix
+        path: "/bar"
+        backend:
+          service:
+            name: service-bar
+            port: 
+              number: 8000
+
